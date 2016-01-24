@@ -11,17 +11,6 @@ Schemas.Tag = new SimpleSchema({
         defaultValue: 'Active',
         optional: true
     },
-    createdBy: {
-        type: Object,
-        blackbox: true,
-        autoValue: function () {
-            if (this.isInsert) {
-                return urbanChef.userDetail(Meteor.user());
-            }
-        },
-        denyUpdate: true,
-        optional: true
-    },
     createdAt: {
         type: Date,
         autoValue: function () {
@@ -47,3 +36,5 @@ Schemas.Tag = new SimpleSchema({
         optional: true
     }
 });
+
+Tags.attachSchema(Schemas.Tag);

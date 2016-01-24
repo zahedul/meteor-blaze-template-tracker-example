@@ -1,3 +1,3 @@
-Router.configure({
-  layoutTemplate: 'basicLayout'
-});
+// Router.configure({
+//   layoutTemplate: 'basicLayout'
+// });

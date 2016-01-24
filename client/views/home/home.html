@@ -1,3 +1,68 @@
 <template name="home">
-    Hello boilerplate world!
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Meteor Meetup Jan'16</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="#about">Template based tracker</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+    <div class="container">
+        <div class="wrapper clearfix">
+            <div class="rows">
+                <div class="col-md-6">
+                    {{> addForm}}
+                </div>
+                <div class="col-md-6">
+
+                </div>
+            </div>
+            <div class="rows">
+                <div class="col-md-12">
+                    <table class="table table-bordered dbd_table">
+                        <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Created At</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {{#each tags}}
+                            <tr>
+                                <td> <span class="edit-tagname"> {{ name }} </span></td>
+                                <td> {{ createdAtFormatted }} </td>
+                                <td class="{{ cssStatus }}"> {{ status }} </td>
+                                <td>
+                                    {{#if isActiveStatus }}
+                                        <button class='do-archive btn btn-danger dbd_table--bttn dbd_table--bttn-archive'><i class='fa fa-archive'></i></button>
+                                    {{ else }}
+                                        <button class='do-active btn btn-success dbd_table--bttn dbd_table--bttn-success'><i class='fa fa-check'></i></button>
+                                    {{/if}}
+                                </td>
+                            </tr>
+                        {{/each}}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
 </template>

@@ -8,20 +8,16 @@ jquery
 underscore
 accounts-password
 aldeed:collection2
-iron:router
 raix:handlebar-helpers
 matteodem:easy-security
 audit-argument-checks
 fastclick
-zimme:iron-router-active
-manuelschoebel:ms-seo
 browser-policy
-useraccounts:semantic-ui
 natestrauser:animate-css
 dburles:collection-helpers
 meteorhacks:fast-render
 
-semantic:ui-css
+semantic:ui-css@1.12.3
 standard-minifiers
 meteor-base
 mobile-experience
@@ -35,3 +31,14 @@ random
 ejson
 spacebars
 check
+kadira:flow-router
+kadira:blaze-layout
+zimme:active-route
+useraccounts:semantic-ui
+mizzao:bootstrap-3
+natestrauser:x-editable-bootstrap
+momentjs:moment
+mizzao:bootboxjs
+natestrauser:select2
+juliancwirko:s-alert
+fortawesome:fontawesome
