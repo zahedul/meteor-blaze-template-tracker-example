@@ -23,9 +23,11 @@ Template.home.helpers({
 
 Template.home.events({
     'click .editable-submit': function (event) {
-        event.preventDefault();
         var self = this,
-            newValue = $(event.target).parents('.editableform').find('div.editable-input > input').val();
+            newValue;
+        event.preventDefault();
+        self = this,
+        newValue = $(event.target).parents('.editableform').find('div.editable-input > input').val();
         if (newValue !== self.name && newValue !== '') {
             Meteor.call('editTag', self._id, newValue, function (error) {
                 if (error) {
@@ -37,8 +39,8 @@ Template.home.events({
         }
     },
     'click .do-archive': function (event) {
-        event.preventDefault();
         var self = this;
+        event.preventDefault();
         bootbox.confirm("Are you sure you want to archive <strong>" + self.name + "</strong> tag?", function (result) {
             if (result === true) {
                 Meteor.call('changeTagStatus', self._id, 'Archive', function (error) {
@@ -53,8 +55,8 @@ Template.home.events({
         });
     },
     'click .do-active': function (event) {
-        event.preventDefault();
         var self = this;
+        event.preventDefault();
         bootbox.confirm("Are you sure you want to active <strong>" + self.name + "</strong> tag?", function (result) {
             if (result === true) {
                 Meteor.call('changeTagStatus', self._id, 'Active', function (error) {

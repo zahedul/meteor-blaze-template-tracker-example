@@ -1,0 +1,18 @@
+<template name="select2">
+    <div class="rows">
+        <div class="col-md-12 col-sm-12 col-lg-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Select Multiple Tag</h3>
+                </div>
+                <div class="panel-body">
+                    <select id="select2" name="tags" multiple="multiple" class="col-md-12">
+                        {{#each tags}}
+                        <option value="{{_id}}">{{name}}</option>
+                        {{/each}}
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>

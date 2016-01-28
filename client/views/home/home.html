@@ -28,39 +28,41 @@
             <div class="rows">
                 <div class="col-md-6">
                     {{> addForm}}
+                    <div class="rows">
+                        <div class="col-md-12">
+                            <table class="table table-bordered dbd_table">
+                                <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Created At</th>
+                                    <th>Status</th>
+                                    <th>Action</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {{#each tags}}
+                                    <tr>
+                                        <td> <span class="edit-tagname"> {{ name }} </span></td>
+                                        <td> {{ createdAtFormatted }} </td>
+                                        <td class="{{ cssStatus }}"> {{ status }} </td>
+                                        <td>
+                                            {{#if isActiveStatus }}
+                                                <button class='do-archive btn btn-danger dbd_table--bttn dbd_table--bttn-archive'><i class='fa fa-archive'></i></button>
+                                            {{ else }}
+                                                <button class='do-active btn btn-success dbd_table--bttn dbd_table--bttn-success'><i class='fa fa-check'></i></button>
+                                            {{/if}}
+                                        </td>
+                                    </tr>
+                                {{/each}}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-md-6">
 
-                </div>
-            </div>
-            <div class="rows">
-                <div class="col-md-12">
-                    <table class="table table-bordered dbd_table">
-                        <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>Created At</th>
-                            <th>Status</th>
-                            <th>Action</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        {{#each tags}}
-                            <tr>
-                                <td> <span class="edit-tagname"> {{ name }} </span></td>
-                                <td> {{ createdAtFormatted }} </td>
-                                <td class="{{ cssStatus }}"> {{ status }} </td>
-                                <td>
-                                    {{#if isActiveStatus }}
-                                        <button class='do-archive btn btn-danger dbd_table--bttn dbd_table--bttn-archive'><i class='fa fa-archive'></i></button>
-                                    {{ else }}
-                                        <button class='do-active btn btn-success dbd_table--bttn dbd_table--bttn-success'><i class='fa fa-check'></i></button>
-                                    {{/if}}
-                                </td>
-                            </tr>
-                        {{/each}}
-                        </tbody>
-                    </table>
+                <div class="col-md-6">
+                    {{> selectPicker}}
+                    {{> select2}}
                 </div>
             </div>
         </div>
