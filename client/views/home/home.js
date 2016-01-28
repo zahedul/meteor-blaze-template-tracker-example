@@ -1,5 +1,7 @@
 Template.home.onRendered(function () {
-
+    FlowRouter.subsReady("tagList", function () {
+        $('.edit-tagname').editable({mode: 'inline'});
+    });
 });
 
 Template.home.helpers({
@@ -26,7 +28,7 @@ Template.home.events({
         var self = this,
             newValue;
         event.preventDefault();
-        self = this,
+        console.log(self);
         newValue = $(event.target).parents('.editableform').find('div.editable-input > input').val();
         if (newValue !== self.name && newValue !== '') {
             Meteor.call('editTag', self._id, newValue, function (error) {
