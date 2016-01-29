@@ -1,3 +1,3 @@
-Meteor.publish("tagList", function(){
+Meteor.publish("tagList", function () {
     return Tags.find();
 });

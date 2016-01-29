@@ -1,8 +1,15 @@
-Template.selectPicker.onRendered(function () {
+Template.selectPicker.onCreated(function () {
     var self = this;
+});
+
+Template.selectPicker.onRendered(function () {
+    var self = this, tags;
+    $('#selectPicker').selectpicker();
 
     self.autorun(function () {
-        $('#selectPicker').selectpicker();
+        tags = Tags.find({status: 'Active'}).fetch();
+        console.log('selectPicker: ' + moment().format('llll'));
+        $('#selectPicker').selectpicker('refresh');
     });
 });
 

@@ -1,6 +1,15 @@
 Template.home.onRendered(function () {
+    var self = this, tag;
+
     FlowRouter.subsReady("tagList", function () {
         $('.edit-tagname').editable({mode: 'inline'});
+    });
+
+    self.autorun(function () {
+        tags = Tags.find({status: 'Active'}).fetch();
+        Tracker.afterFlush(function () {
+            $('.edit-tagname').editable('destroy').editable({mode: 'inline'});
+        });
     });
 });
 
@@ -28,7 +37,6 @@ Template.home.events({
         var self = this,
             newValue;
         event.preventDefault();
-        console.log(self);
         newValue = $(event.target).parents('.editableform').find('div.editable-input > input').val();
         if (newValue !== self.name && newValue !== '') {
             Meteor.call('editTag', self._id, newValue, function (error) {
@@ -49,7 +57,6 @@ Template.home.events({
                     if (error) {
                         sAlert.error(error);
                     } else {
-                        Meteor.call('log', 'info', 'tag is removed : ' + self._id);
                         sAlert.success('Tag archived successfully');
                     }
                 });
